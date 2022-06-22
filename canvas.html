@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <script>
+        window.onload = function () {
+            // var canvas = document.getElementById("myCanvas");
+            // var ctx = canvas.getContext("2d");
+            // // ctx.moveTo(100,300);
+            // // ctx.lineTo(300,100);
+            // // ctx.stroke();
+
+            // // Fill rectangle
+            // ctx.globalAlpha = 0.2;
+            // ctx.fillStyle = "purple";
+            // ctx.fillRect(250, 100, 300, 300); // x1, y1, x2 from x1, y2 from y1
+            
+            // // Reactangle
+            // ctx.globalAlpha = 1;
+            // ctx.rect(100, 200, 100, 100);
+            // ctx.stroke();
+
+            // // Arch 
+            // ctx.arc(400,400,178,5,12,false);
+            // ctx.lineWidth = 3;
+            // ctx.lineCap = "rounds";
+            // ctx.strokeStyle = "purple";
+            // ctx.stroke();
+            
+            // ctx.rect(600,200,100,100)
+            // ctx.stroke();
+            
+            // ctx.globalAlpha = .2;
+            // ctx.fillStyle = "purple";
+            // ctx.fill();
+
+            // ctx.globalAlpha = 1;
+            // ctx.arc(400, 400, 178, 5, 12, false);
+            // ctx.lineWidth = 3;
+            // ctx.lineCap = "rounds";
+            // ctx.strokeStyle = "purple";
+            // ctx.stroke();
+            
+            // Circle
+            // var ctx3 = canvas.getContext("2d");
+            // ctx3.arc(400,400,178,5,12,true);
+            // ctx3.stroke();
+
+            // Fill gradient
+
+            // var canvas = document.getElementById("myCanvas");
+            // var context = canvas.getContext("2d");
+            // context.rect(50, 50, 600, 600);
+            // var grd = context.createLinearGradient(0, 0, canvas.width, canvas.height);
+            // grd.addColorStop(0, 'purple');
+            // grd.addColorStop(1, '#004CB3');
+            // context.fillStyle = grd;
+            // context.fill();
+            // context.stroke();
+
+            // var canvas = document.getElementById("myCanvas");
+            // var context = canvas.getContext("2d");
+            // context.arc(350, 300, 190, 0, 2 * Math.PI, false);
+            // var grd = context.createRadialGradient(350, 300, 300, 160, 110, 100);
+            // grd.addColorStop(0, 'brown');
+            // grd.addColorStop(1, 'black');
+            // context.fillStyle = grd;
+            // context.fill();
+            // context.stroke();
+            // context.textAlign = "left";
+            // context.textBaseline = "bottom";
+            // context.font = "bold 32px Arial";
+            // context.fillText("DOOM ETERNAL", 240, 100);
+            
+            var canvas = document.getElementById("myCanvas");
+            var context = canvas.getContext("2d");
+            context.font = "bold 32px Arial";
+            context.textAlign = "center";
+            context.textBaseline = "middle";
+            context.fillStyle = "brown";
+            context.fillText("Hello World!", 500, 350);
+            context.strokeStyle = "blue";
+            context.strokeText("Hello World!",500,350);
+ 
+        };
+    </script>
+</head>
+<body>
+    <canvas style="border: 1px solid red;" id="myCanvas" width="1000" height="700"></canvas>
+</body>
+</html>
