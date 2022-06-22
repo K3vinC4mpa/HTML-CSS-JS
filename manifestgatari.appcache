@@ -1,0 +1,21 @@
+CACHE MANIFEST
+# v1.0 06-22-2022
+
+CACHE:
+# pages
+*.html
+
+# styles & scripts
+styles.css
+scripts.css
+
+#  media & resources
+fonts/KozMinPro-Bold.otf
+media/sutekimemppou.mp3
+media/sutekimemppou.ogg
+media/sutekimemppou.mp4
+
+NETWORK:
+
+FALLBACK:
+

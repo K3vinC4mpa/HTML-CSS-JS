@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" manifest="manifestgatari.appcache">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="best_animu" value="">
+    <button type="submit" onclick="bestAnime()"> Send</button>
+    <script>
+       function bestAnime(){
+
+            best_animu = document.getElementById("best_animu").value;
+            if (localStorage) {  
+                    localStorage.setItem("best_anime", best_animu);
+                    localStorage.setItem("real_best_anime", "Monogatari Series");
+                    alert("I know you know this but just to remind you: " + localStorage.getItem("real_best_anime") + " is the best animu in the world.");
+                    localStorage.removeItem("best_anime");
+                    alert(" Real best anime is: " + localStorage.getItem("best_anime"));
+                    localStorage.clear();
+
+                } else {
+                    alert("Do you hate Monogatari Series? really? Get out of my website!!")
+                }
+        };
+  
+    </script>
+</body>
+</html>
