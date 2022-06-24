@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Following hachikuji...</title>
+    <script>
+
+        var watchID;
+        
+        function showPosition(){
+
+            if(navigator.geolocation){
+
+                watchID = navigator.geolocation.watchPosition(successCallback);
+
+            }else{
+                alert("Hachikuji scapes, araragi would be disappointed...")
+            }
+        }
+
+        function successCallback(position){
+
+            toggleWatchBtn.innerHTML = "Stop Following...";
+
+            // Check position has been changed or not before doing anything
+            if (prevLat != position.coords.latitude || prevLong != position.coords.longitude){
+
+                // Set previous locations
+                var prevLat = position.coords.latitude;
+                var prevLong = position.coords.longitude;
+
+                // Get current position
+                var positionInfo = "Hachikuji is in front of you, look: (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " + position.coords.longitude + ")";
+
+                document.getElementById("result").innerHTML = positionInfo;
+
+            }
+        }
+
+        function startWatch(){
+
+            var result = document.getElementById("result");
+            var toggleWatchBtn = document.getElementById("toggleWatchBtn");
+
+            toggleWatchBtn.onclick = function(){
+
+                if(watchID){
+
+                    toggleWatchBtn.innerHTML = "Start Watching";
+                    navigator.geolocation.clearWatch(watchID);
+                    watchID = false;
+
+                } else {
+
+                    toggleWatchBtn.innerHTML = "Adquiring Geo Location of Hachikuji..."
+                    showPosition();
+                }
+            }
+        
+        }
+
+        window.onload = startWatch;
+    </script>
+
+</head>
+<body>
+    <div id="result">
+
+    </div>
+    <button type="button" id="toggleWatchBtn">Start Following</button>
+</body>
+</html>

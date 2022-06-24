@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Araragi when seems hachikuji</title>
+    <style>
+        @font-face {
+            src: url(./fonts/KozMinPro-Bold.otf);
+            font-family: monogatari;
+        }
+    
+        body {
+            padding-top: 20px;
+            background-color: rgb(11, 19, 24);
+            font-family: monogatari;
+            line-height: 35px;
+            letter-spacing: .5px;
+    
+    
+        }
+    
+        .container {
+            margin: auto;
+            margin-bottom: 10px;
+            background-color: rgb(0, 0, 0);
+            border: 1px solid rgb(233, 191, 251);
+            padding: 30px 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 5px;
+            width: 50%;
+    
+        }
+        .dropBox{
+            width: 400px;
+            height: 300px;
+            border: 3px dashed rgb(0, 0, 0);
+            background: #caceda;
+            text-align: center;
+            margin: 20px 0px 40px 0px;
+            color: orange;
+            border-radius: 5px;
+            position: relative;
+        }
+        .dropBox img{
+            width: 95%;
+            height: 280px;
+            margin-top: 10px;
+            border-radius: 5px;
+           
+            
+        }
+        /* .dropBox table {
+            
+            position: relative
+
+        }
+        td, tr {
+            display: inline-block;
+            position: absolute;
+            border: 3px solid  rgb(0, 0, 0);
+            height: 300px;
+        } */
+     
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 style="width: 40%;  margin: 30px 20px 30px 20px; text-align: center; color:  #caceda; font-size: 1.9em;">Grap & Drop Monogatari Mode</h2>
+        <p id="monogataring"style="width: 80%;  text-align: center; color:  #caceda; font-size: 1em;">Drop creepy ougi in the frame and you won...</p>
+        <div class="dropBox" id ="dropBox" ondragover="dragOver(event);" ondrop="drop(event);" >
+            <!-- Ougi would be dorpped here-->
+        </div>
+        <img width="500px" height="360px" style=" border-radius: 5px;" src="./images/creepy_ougi.jpg" id="dragOugi" draggable="true" ondragstart="dragStart(event);" alt="creepy ougi is real..." >
+        
+    </div>
+   
+
+    <script>
+
+        function dragStart(e){
+            
+            // Sets the operation allowed for a drag source
+            e.dataTransfer.effectAllowed = "move";
+
+            // Sets the value and type of dragged data
+            e.dataTransfer.setData("Text", e.target.getAttribute("id"));
+
+        }
+
+        function dragOver(e){
+            
+            // Prevent the browser default handling of the data
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        function drop(e){
+
+            // Cancel this event for everyone else
+            e.stopPropagation();
+            e.preventDefault();
+
+            // Retrieve the dragged data by type
+            var data = e.dataTransfer.getData("Text");
+
+            // Append image to the drop box
+            e.target.appendChild(document.getElementById(data));
+            document.getElementById("monogataring").innerHTML = "Ougi is captured, nice job Churaragi-kun..."
+        }
+    </script>
+</body>
+</html>

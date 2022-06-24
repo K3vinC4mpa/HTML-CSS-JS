@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting true Monogatari faggot geolocation...</title>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css"
+        type="text/css">    
+    <script src="https://maps.google.com/maps/api/js?sensor=false"></script> <!--google maps api but u need a api key-->
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/build/ol.js"></script>
+    <script>
+        /* ---------- Basic Geolocation example -----------
+        function showPosition(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(function(position){
+                    var positionInfo = "You, faggot, this is FBI, surrender, your position is: (" + " Latitude: "+position.coords.latitude + ", " + "Longitude: " +position.coords.longitude + ")";
+                    document.getElementById("result").innerHTML = positionInfo;
+                });
+            } else{
+                alert("Damnn, You are using VPN fucking pedofile...");
+            }
+        } */
+
+        /* ----------- Geolocation handle errors and rejections -----------
+        var result;
+
+        function showPosition(){
+            //Store the element just when the function is called...
+            result = document.getElementById("result");
+
+            //if geolocation is avaiable...
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(successCallback,errorCallback);
+                result.innerHTML = "Getting the position information, maybe you are screwed, let's see lolicon..."
+            } else{
+                alert("You are a lucky guy, this web browser sucks...")
+            }
+        }
+
+        // function for success
+        function successCallback(position){
+            result.innerHTML = "You, faggot, this is FBI, surrender, your position is: (" + " Latitude: " + position.coords.latitude + ", " + "Longitude: " + position.coords.longitude + ")";
+        }
+
+        // function for error
+        function errorCallback(error){
+            if(error.code == 1){
+                result.innerHTML = "Have you decided to not share your position?, we know u are guilty..."
+
+            } else if (error.code == 2){
+                result.innerHTML = "Network or positioning services are unavailable, damn, you live in latinoamerica 4sure...."
+
+            } else if(error.code == 3){
+                result.innerHTML = "Attempt timed out before we could get the data. Pause your lolicon hentai downloads right know..."
+            
+            } else{
+                result.innerHTML = "IDK why fails... God needs to be lolicon or something...."
+
+            }
+        } */
+
+        /* --------- Geolocation with static google map API -----------
+        function showPosition(){
+            navigator.geolocation.getCurrentPosition(showMap);
+        }
+
+        function showMap(position){
+            var latlong = position.coords.latitude + "," + position.coords.longitude;
+
+            // Set Google map source url
+            var mapLink = "https://maps.googleapis.com/maps/api/staticmap?center=" + latlong + "&zoom=16&size=400x300&output=embed";
+
+            // Create a insert Google map
+             document.getElementById("result").innerHTML = "<img alt='Map Holder' src='" + mapLink + "'>";
+        }  */
+
+        /* -------- Google maps API embed map with marker code ------------
+        function showPosition (){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(showMap);
+            } else{
+                alert("You are a lucky guy, this web browser sucks...")
+            }
+        }
+
+       function showMap(position) {
+            // Get location data
+            lat = position.coords.latitude;
+            long = position.coords.longitude;
+            var latlong = new google.maps.LatLng(lat, long);
+
+            var myOptions = {
+                center: latlong,
+                zoom: 16,
+                mapTypeControl: true,
+                navigationControlOptions: {
+                    style: google.maps.NavigationControlStyle.SMALL
+                }
+            }
+
+            var map = new google.maps.Map(document.getElementById("embedMap"), myOptions);
+            var marker = new google.maps.Marker({ position: latlong, map: map, title: "You are here!" });
+        } */
+
+         function showPosition (){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(showMap);
+            } else{
+                alert("You are a lucky guy, this web browser sucks...")
+            }
+        }
+
+        function showMap(position){
+            var lat = position.coords.latitude;
+            var long = position.coords.longitude;
+            console.log(typeof lat);
+            console.log(typeof long);
+            console.log(lat, long)
+
+            // Creation of the map object
+            var map = new ol.Map({
+                target: 'result',
+                layers: [
+                    new ol.layer.Tile({
+                        source: new ol.source.OSM()
+                    }),
+                    // Adding a marker for the map
+                    new ol.layer.Vector({
+                        source: new ol.source.Vector({
+                            features: [
+                                new ol.Feature({
+                                    geometry: new ol.geom.Point(ol.proj.fromLonLat([long, position.coords.latitude]))
+                                })
+                            ]
+                        })
+                    })
+                ],
+                // View object with specific coords, zoom, etc...
+                view: new ol.View({
+                    center: ol.proj.fromLonLat([position.coords.longitude,lat]),
+                    zoom: 16
+                })
+            });
+
+            // Adding a marker after example
+            //  var layer = new ol.layer.Vector({
+            //     source: new ol.source.Vector({
+            //         features: [
+            //             new ol.Feature({
+            //                 geometry: new ol.geom.Point(ol.proj.fromLonLat([long, position.coords.latitude]))
+            //             })
+            //         ]
+            //     })
+            // });
+            // map.addLayer(layer);
+        }
+        
+    </script>
+</head>
+<body>
+    <div id="result" style="width: 400px; height: 300px;">
+        <!-- Here show the position -->
+    </div>
+    <button type="button" onclick="showPosition()"> You're screwed</button>
+</body>
+</html>
