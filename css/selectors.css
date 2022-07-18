@@ -1,0 +1,58 @@
+/* Universal selector */
+*{
+    margin: 0;
+    padding: 0;
+    background-color: brown;
+}
+
+/* Element type selector */
+p {
+    color: beige;
+}
+
+
+
+/* Class selector */
+    /* Example: <div class="container"> </> */
+.container{
+    padding: 20px;
+    background-color: bisque;
+    border: 4px solid burlywood;
+    text-align: center;
+    margin: 10px;
+}
+h1 em{
+
+    color: cornflowerblue;
+}
+
+/* ID selector */
+/* Example:  <div id="error"> </> */
+#error p{
+    background-color: black;
+    height: 50px;
+    padding-top: 10px;
+    /* font-size: 1.2em; */
+    text-align: center;
+    
+}
+
+p.p2{
+    font-size: 2em;
+}
+
+/* Child selectors */
+
+div > blockquote p{
+    color: green;
+}
+div > blockquote cite{
+    color:blue;
+}
+
+/* Adjacent sibling selector */
+
+h2 + p{
+    color:blueviolet;
+    font-size: xx-large;
+}
