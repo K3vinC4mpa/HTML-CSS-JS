@@ -1,0 +1,124 @@
+/* Background Image (repeat, position, attachment) */
+
+.background {
+
+    /* -------- Normal declaration*/
+
+    /* background-color: brown;
+    background-image: url("../images/creepy_ougi.jpg");
+    background-repeat: repeat-x;
+    background-repeat: repeat-y;
+    background-size: 400px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed; */
+
+    /* --------- Shorthand propety */
+    /* Order is ---> background: color image repeat attachment position; */
+    background: rgba(179, 90, 90, 0.372) url("../images/creepy_ougi.jpg") no-repeat fixed 50% 50%;
+
+}
+
+/* Fonts ------------------------------------------- */
+
+@font-face {
+    src: url(../fonts/KozMinPro-Bold.otf);
+    font-family: monogatari;
+}
+.font {
+    font-family: monogatari, monospace;
+    /* font-size: 32px;
+    font-size: 2em; */
+    /* font-size: 62.5%; font-size 1em = 10px */
+    font-size: 62.5%;
+}
+
+/* rem is relative to the root declaration font size */
+/* .font h1{
+    font-size: 6.4rem;
+}
+h1 span{
+    font-size: 12.8rem;
+} */
+/* 
+    font size keywords:
+        medium = 16px
+        xx-small = 9px
+        x-small = 10px
+        small = 13px
+        large = 18px
+        x-large = 24px
+        xx-large = 32px
+
+*/
+.font h1{
+    font-size: 3vw;
+    font-weight: normal;
+    font-style: normal;
+    text-align: center;
+    
+}
+.font h1 span{
+    font-variant: small-caps;
+}
+
+/* Text --------------------------------------- */
+
+.font p{
+    font-size: 1rem;
+    /* Horizontal alignment */
+    text-align: center;
+
+    /* underline, overline, line-through, none */
+    text-decoration: overline;
+
+    /* upper, lower, capitalization */
+    text-transform: capitalize;
+
+    /* text-ident -> identation of the text, you specify the ident with pixels, ems, %, etc... */
+
+    letter-spacing: 5px;
+     
+    /* word-spacing: 20px; */
+
+    line-height: 200%; /* it's like a margin, could be understand it with borders more easy....*/
+
+
+}
+.font a{
+    font-size: .9rem;
+
+}
+
+/* Links ------------------------------------------ */
+
+a:link {
+    color:rgb(95, 25, 25);
+    text-decoration: none;
+    border: 1px solid rgb(95, 25, 25);
+    border-radius: 3px;
+    background-color: rgb(249, 114, 114);
+    padding: 5px 10px;
+}
+a:visited {
+    /* visited link */
+    color: #492768;
+    text-decoration: none;
+    border: 1px solid #492768;
+    background-color: #ab81d3;
+    border-radius: 3px;
+    padding: 5px 10px;
+}
+
+a:hover {
+    /* mouse over link */
+    color: #95da95;
+    text-decoration: none;
+}
+
+a:active {
+    /* active link */
+    color: #00ffff;
+    text-decoration: none;
+}
+
