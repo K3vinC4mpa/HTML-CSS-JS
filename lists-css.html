@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* List style type */
+        ul{
+            list-style-type: square;
+        }
+        ol{
+            list-style-type: upper-roman;
+        }
+        ol li,ul li{
+            background: rgb(42, 255, 177);
+            padding: 5px;
+            margin: 5px;
+        }
+        /* Position of list markers*/
+        ol li{
+            list-style-position: inside;
+        }
+        ul li{
+            list-style-position: outside;
+        }
+        /* Using a image as marker (good with a specific image sized)*/
+        /* ul.monogatari li{
+            list-style-image: url("./images/creepy_ougi.jpg");
+            
+        } */
+        /* Using background-image */
+        ul.monogatari {
+            list-style-position: outside;
+            list-style-type: none;
+           
+        }
+        ul.monogatari li {
+            background-color: #ffff;
+            background-image: url("./images/creepy_ougi.jpg");
+            background-position: 5px 5px;    /* X-pos Y-pos (from top-left) */
+            background-repeat: no-repeat;
+            padding-left: 50px;
+            background-size: 25px;
+        }
+
+        /* Using in the li element with the ::before property */
+        ul.beforePropety li{
+            list-style-type: none;
+            background-color: #ffff;
+            
+        }
+        ul.beforePropety li::before{
+            content: '';
+            display: inline-block;
+            height: 20px;
+            width: 20px;
+            background-image: url("./images/sadist.jpg");
+            background-size: contain;
+            margin-right: 15px;
+        }
+
+        /* Setting All List Properties At Once */
+        ul.atOnce {
+            list-style: square inside url("./images/ougibag.jpg");
+        }
+
+        /* Creating a NavBar */
+        ul.navbar {
+            padding: 0;
+            
+            list-style: none;
+            background: #f2f2f2;
+
+        }
+        ul.navbar li{
+            background: #f2f2f2;
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+        }
+        ul.navbar li a{
+            display: block;
+            padding: 10px 35px;
+            color: #333;
+            text-decoration: none;
+        }
+        ul.navbar li a:hover {
+            color: #fff;
+            background: #310d2e;
+        }
+    </style>
+</head>
+<body>
+    <h2>Creating a navbar</h2>
+    <ul class="navbar">
+        <li><a href="#Monday">Monday</a></li>
+        <li><a href="#Tuesday">Tuesday</a> </li>
+        <li><a href="#Wednesday">Wednesday</a></li>
+        <li><a href="#Thursday">Thurday</a></li>
+        <li><a href="#Friday">Friday</a></li>
+        <li><a href="#Saturday">Saturday</a></li>
+        <li><a href="#Sunday">Sunday</a></li>
+        
+
+        
+    </ul>
+    <h2>Style position OUT</h2>
+    <ul>
+        <li>Sawano</li>
+        <li>Kanno</li>
+    </ul>
+    <br>
+
+    <h2>Style position IN</h2>
+    <ol>
+        <li>Nomad</li>
+        <li>Discovery</li>
+        <li>Colonial</li>
+        <li>Fortress</li>
+        <li>Industrial</li>
+        <li>Imperial</li>
+        
+    </ol>
+    <h2>Using Images as List Markers</h2>
+    <ul class="monogatari">
+        <li>Kaiki</li>
+        <li>Oshino</li>
+        <li>Kagenui</li>
+    </ul>
+    <h2>Using in the li element with the ::before property</h2>
+    <ul class="beforePropety">
+        <li>Blitzcranck</li>
+        <li>Thresh</li>
+    </ul>
+    <h2>Setting All List Properties At Once</h2>
+    <ul class="atOnce">
+        <li>Casca</li>
+        <li>Guts</li>
+    </ul>
+</body>
+</html>
